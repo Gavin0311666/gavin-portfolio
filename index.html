@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="常家伟 Gavin Chang — 剪辑师个人作品集">
+    <title>Gavin Chang · 剪辑师</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;600;700&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a3a5c'/><text x='16' y='22' text-anchor='middle' fill='white' font-size='18' font-family='serif'>G</text></svg>">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">GAVIN</a>
+            <ul class="nav-links">
+                <li><a href="#about" data-nav="about">关于</a></li>
+                <li><a href="#experience" data-nav="experience">经历</a></li>
+                <li><a href="#portfolio" data-nav="portfolio">作品</a></li>
+                <li><a href="#contact" data-nav="contact">联系</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-content">
+            <div class="hero-photo-wrapper">
+                <div class="hero-photo-ring"></div>
+                <img src="images/avatar.jpg" alt="Gavin Chang" class="hero-photo">
+            </div>
+            <p class="hero-greeting">Hello, 我是</p>
+            <h1 class="hero-name"><span class="hero-name-cn">常家伟</span><span class="hero-name-divider">·</span><span class="hero-name-en">Gavin Chang</span></h1>
+            <p class="hero-title">剪 辑 师</p>
+            <p class="hero-slogan">「 To be myself. 」</p>
+            <div class="hero-scroll"><span class="hero-scroll-line"></span><span class="hero-scroll-text">向下滚动</span></div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title"><span class="section-title-en">About</span><span class="section-title-cn">关于我</span><span class="section-title-line"></span></h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-intro">一名<span class="highlight">INFP</span>型剪辑师，相信影像的力量可以触及灵魂深处。热衷于用镜头语言讲述故事，在节奏与情绪之间找到完美的平衡点。</p>
+                    <p class="about-desc">2022年进入南通大学信息管理与信息系统专业学习，期间将对信息架构的理解融入创作流程。2025年起先后在广州至名文化、珠海弗斯文创及深圳游星文化担任剪辑岗位，积累了从内容策划到商业变现的全链路经验。擅长自媒体内容生产、视觉叙事优化与团队协作管理。</p>
+                    <div class="about-tags"><span class="tag">INFP</span><span class="tag">剪辑</span><span class="tag">音乐</span><span class="tag">电影</span><span class="tag">游戏</span><span class="tag">建模</span></div>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card"><div class="about-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg></div><div class="about-card-label">学历</div><div class="about-card-value">南通大学 · 本科</div><div class="about-card-sub">信息管理与信息系统<br>2022.09 — 2026.06</div></div>
+                    <div class="about-card"><div class="about-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="about-card-label">经验</div><div class="about-card-value">2+ 年</div><div class="about-card-sub">自媒体 / 商业广告<br>内容全流程制作</div></div>
+                    <div class="about-card"><div class="about-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="about-card-label">合作客户</div><div class="about-card-value">50+</div><div class="about-card-sub">累计商务合作<br>稳定商业变现</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 class="section-title"><span class="section-title-en">Experience</span><span class="section-title-cn">工作经历</span><span class="section-title-line"></span></h2>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-period">2026.04 — 2026.07</div><h3 class="timeline-role">剪辑师</h3><p class="timeline-company">深圳市游星文化传媒有限公司</p><p class="timeline-desc">以自媒体内容创作和商业广告宣传为主，负责视频全流程制作与质量把控。</p></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-period">2025.07 — 2026.02</div><h3 class="timeline-role">剪辑主管</h3><p class="timeline-company">广州至名文化传播有限公司</p><ul class="timeline-details"><li>统筹自媒体内容生产全流程运营，拆解制作任务、把控项目进度，建立标准化交付机制</li><li>聚焦内容传播性与用户体验，结合抖音、小红书等平台算法偏好，优化剪辑叙事逻辑与视觉呈现，助力完播率与互动量提升 30% 以上</li><li>搭建内容资产与合作资源数字化管理体系，通过标签化管理实现资源高效复用</li><li>主导商务运营与合作拓展，累计达成 50+ 客户合作，为账号带来稳定商业变现</li></ul></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-period">2025.07 — 2026.02</div><h3 class="timeline-role">视频剪辑师</h3><p class="timeline-company">珠海弗斯文化创意有限公司</p><ul class="timeline-details"><li>承接客户视频剪辑需求，完成素材合并、色彩校正、音频优化、双语字幕整合等全流程制作</li><li>针对境外教育平台特性，进行视频格式适配与合规性检查（含字幕本地化、版权校验）</li><li>负责最终成片质量审核与上线交付，确保内容按时、合规发布至目标平台</li></ul></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title"><span class="section-title-en">Portfolio</span><span class="section-title-cn">作品集</span><span class="section-title-line"></span></h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="vlog">Vlog</button>
+                <button class="filter-btn" data-filter="documentary">纪录片</button>
+                <button class="filter-btn" data-filter="educational">科普&教学</button>
+                <button class="filter-btn" data-filter="talking">口播</button>
+                <button class="filter-btn" data-filter="montage">影视混剪</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="vlog">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">Vlog</span><h4 class="portfolio-title">Vlog 作品 01</h4><p class="portfolio-desc">日常生活记录与情绪短片</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="vlog">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">Vlog</span><h4 class="portfolio-title">Vlog 作品 02</h4><p class="portfolio-desc">旅行记录与城市漫游</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="vlog">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">Vlog</span><h4 class="portfolio-title">Vlog 作品 03</h4><p class="portfolio-desc">活动幕后花絮记录</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="vlog">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">Vlog</span><h4 class="portfolio-title">Vlog 作品 04</h4><p class="portfolio-desc">日常生活碎片集</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">纪录片</span><h4 class="portfolio-title">纪录片 01</h4><p class="portfolio-desc">人物纪实短片</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">纪录片</span><h4 class="portfolio-title">纪录片 02</h4><p class="portfolio-desc">城市文化纪录</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">纪录片</span><h4 class="portfolio-title">纪录片 03</h4><p class="portfolio-desc">手艺人故事记录</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">纪录片</span><h4 class="portfolio-title">纪录片 04</h4><p class="portfolio-desc">校园记忆纪录</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="educational">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">科普&教学</span><h4 class="portfolio-title">科普教学 01</h4><p class="portfolio-desc">知识科普动画短片</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="educational">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">科普&教学</span><h4 class="portfolio-title">科普教学 02</h4><p class="portfolio-desc">软件教程系列</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="educational">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">科普&教学</span><h4 class="portfolio-title">科普教学 03</h4><p class="portfolio-desc">剪辑技巧分享</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="educational">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">科普&教学</span><h4 class="portfolio-title">科普教学 04</h4><p class="portfolio-desc">行业知识科普</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="talking">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">口播</span><h4 class="portfolio-title">口播 01</h4><p class="portfolio-desc">产品讲解与推荐</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="talking">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">口播</span><h4 class="portfolio-title">口播 02</h4><p class="portfolio-desc">观点分享与评论</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="talking">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">口播</span><h4 class="portfolio-title">口播 03</h4><p class="portfolio-desc">商业广告口播</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="talking">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">口播</span><h4 class="portfolio-title">口播 04</h4><p class="portfolio-desc">品牌故事讲述</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="montage">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">影视混剪</span><h4 class="portfolio-title">混剪 01</h4><p class="portfolio-desc">年度影视回顾混剪</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="montage">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">影视混剪</span><h4 class="portfolio-title">混剪 02</h4><p class="portfolio-desc">情绪氛围混剪</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="montage">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">影视混剪</span><h4 class="portfolio-title">混剪 03</h4><p class="portfolio-desc">动作场面高燃混剪</p></div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="montage">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"><div class="portfolio-thumb-placeholder"></div><div class="portfolio-overlay"><span class="portfolio-play">▶ 播放</span></div></div>
+                        <div class="portfolio-info"><span class="portfolio-cat">影视混剪</span><h4 class="portfolio-title">混剪 04</h4><p class="portfolio-desc">角色主题混剪</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-bg"></div>
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="videoClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="video-modal-player" id="videoPlayer">
+                <div class="video-modal-placeholder"><p>请将作品上传至哔哩哔哩后，将 BV 号填入 <code>js/main.js</code> 中的 <code>VIDEO_DATA</code> 配置</p></div>
+            </div>
+            <div class="video-modal-info"><h3 id="videoTitle">作品标题</h3><p id="videoDesc">作品描述</p></div>
+        </div>
+    </div>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title"><span class="section-title-en">Contact</span><span class="section-title-cn">联系我</span><span class="section-title-line"></span></h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p class="contact-tagline">如果你有合作意向或只是想打个招呼，<br>随时欢迎联系我。</p>
+                    <div class="contact-links">
+                        <a href="mailto:gavin@example.com" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>发送邮件</span>
+                        </a>
+                        <a href="#" class="contact-link" id="bilibiliLink">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10,9 16,12 10,15"/></svg>
+                            <span>哔哩哔哩</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-visual">
+                    <div class="contact-quote"><p>To be myself.</p><span>— Gavin Chang</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p class="footer-text">© 2026 Gavin Chang · 常家伟</p><p class="footer-slogan">To be myself.</p></div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
