@@ -122,34 +122,36 @@ function initVideoModal() {
   var titleEl = document.getElementById("videoTitle");
   var closeBtn = document.getElementById("videoClose");
   var bg = modal ? modal.querySelector(".video-modal-bg") : null;
-  if (!modal) return;
-  
-  document.querySelectorAll(".portfolio-card").forEach(function(card) {
-    card.addEventListener("click", function() {
-      var titleEl2 = card.querySelector(".portfolio-title");
-      var title = titleEl2.textContent.trim();
-      var url = titleEl2.getAttribute("data-video");
-      titleEl.textContent = title;
-      
-      if (url) {
-        if (!player.contains(videoEl)) player.appendChild(videoEl);
-        videoEl.src = url;
-        videoEl.load();
-        videoEl.play().catch(function() {});
-      }
-      
-      modal.classList.add("open");
-      document.body.style.overflow = "hidden";
-    });
+  var grid = document.getElementById("portfolioGrid");
+  if (!modal || !grid) return;
+
+  grid.addEventListener("click", function(e) {
+    var card = e.target.closest(".portfolio-card");
+    if (!card) return;
+    e.preventDefault();
+    var titleEl2 = card.querySelector(".portfolio-title");
+    var title = titleEl2.textContent.trim();
+    var url = titleEl2.getAttribute("data-video");
+    titleEl.textContent = title;
+    
+    if (url) {
+      if (!player.contains(videoEl)) player.appendChild(videoEl);
+      videoEl.src = url;
+      videoEl.load();
+      videoEl.play().catch(function(){});
+    }
+    
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
   });
-  
+
   function closeModal() {
     modal.classList.remove("open");
     document.body.style.overflow = "";
     videoEl.pause();
     videoEl.removeAttribute("src");
   }
-  
+
   closeBtn.addEventListener("click", closeModal);
   bg.addEventListener("click", closeModal);
   document.addEventListener("keydown", function(e) { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
