@@ -116,35 +116,43 @@ function initPortfolio() {
 }
 
 function initVideoModal() {
-  const modal = document.getElementById("videoModal"), player = document.getElementById("videoPlayer"), videoEl = document.getElementById("videoEl"), titleEl = document.getElementById("videoTitle"), descEl = document.getElementById("videoDesc"), closeBtn = document.getElementById("videoClose"), bg = modal ? modal.querySelector(".video-modal-bg") : null;
+  var modal = document.getElementById("videoModal");
+  var player = document.getElementById("videoPlayer");
+  var videoEl = document.getElementById("videoEl");
+  var titleEl = document.getElementById("videoTitle");
+  var closeBtn = document.getElementById("videoClose");
+  var bg = modal ? modal.querySelector(".video-modal-bg") : null;
   if (!modal) return;
-  document.querySelectorAll(".portfolio-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const title = card.querySelector(".portfolio-title").textContent.trim();
-      const url = VIDEO_DATA[title];
+  
+  document.querySelectorAll(".portfolio-card").forEach(function(card) {
+    card.addEventListener("click", function() {
+      var titleEl2 = card.querySelector(".portfolio-title");
+      var title = titleEl2.textContent.trim();
+      var url = titleEl2.getAttribute("data-video");
       titleEl.textContent = title;
+      
       if (url) {
-        descEl.textContent = "";
         if (!player.contains(videoEl)) player.appendChild(videoEl);
         videoEl.src = url;
         videoEl.load();
         videoEl.play().catch(function() {});
-      } else {
-        descEl.textContent = "暂未上传视频";
       }
+      
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
     });
   });
+  
   function closeModal() {
     modal.classList.remove("open");
     document.body.style.overflow = "";
     videoEl.pause();
-    videoEl.removeAttribute('src');
+    videoEl.removeAttribute("src");
   }
+  
   closeBtn.addEventListener("click", closeModal);
   bg.addEventListener("click", closeModal);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 }
 
 function initParallax() {
