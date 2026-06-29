@@ -78,13 +78,13 @@
         <div class="container">
             <h2 class="section-title"><span class="section-title-en">Portfolio</span><span class="section-title-cn">作品集</span><span class="section-title-line"></span></h2>
             <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">全部</button>
-                <button class="filter-btn" data-filter="vlog">Vlog</button>
-                <button class="filter-btn" data-filter="documentary">纪录片</button>
-                <button class="filter-btn" data-filter="educational">科普&教学</button>
-                <button class="filter-btn" data-filter="talking">口播</button>
-                <button class="filter-btn" data-filter="montage">影视混剪</button>
-                <button class="filter-btn" data-filter="ae">AE特效</button>
+                <button class="filter-btn active" data-filter="all" onclick="filterPortfolio('all', this)">全部</button>
+                <button class="filter-btn" data-filter="vlog" onclick="filterPortfolio('vlog', this)">Vlog</button>
+                <button class="filter-btn" data-filter="documentary" onclick="filterPortfolio('documentary', this)">纪录片</button>
+                <button class="filter-btn" data-filter="educational" onclick="filterPortfolio('educational', this)">科普&教学</button>
+                <button class="filter-btn" data-filter="talking" onclick="filterPortfolio('talking', this)">口播</button>
+                <button class="filter-btn" data-filter="montage" onclick="filterPortfolio('montage', this)">影视混剪</button>
+                <button class="filter-btn" data-filter="ae" onclick="filterPortfolio('ae', this)">AE特效</button>
             </div>
             <div class="portfolio-grid" id="portfolioGrid">
                 <div class="portfolio-item" data-category="vlog">
@@ -324,6 +324,22 @@ function openVideo(card) {
   videoEl.play().catch(function(){});
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
+}
+
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+  btn.classList.add("active");
+  document.querySelectorAll(".portfolio-item").forEach(function(item) {
+    if (cat === "all" || item.getAttribute("data-category") === cat) {
+      item.classList.remove("hidden");
+      item.style.opacity = "1";
+      item.style.transform = "scale(1)";
+      item.style.pointerEvents = "auto";
+      item.style.position = "";
+    } else {
+      item.classList.add("hidden");
+    }
+  });
 }
 function closeVideo() {
   var modal = document.getElementById("videoModal");
