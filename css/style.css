@@ -218,3 +218,12 @@ code { background: rgba(74, 144, 196, 0.15); padding: 2px 8px; border-radius: 4p
 .portfolio-thumb-video { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; background: var(--bg-surface); }
 .portfolio-thumb-video::-webkit-media-controls { display: none !important; }
 .portfolio-thumb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-surface); }
+
+/* ===== Douyin Card ===== */
+.portfolio-thumb-douyin { background: linear-gradient(135deg, #ff0044 0%, #ff2d55 30%, #ff0044 60%, #cc0036 100%) !important; animation: douyinShimmer 3s ease-in-out infinite; background-size: 200% 200% !important; }
+@keyframes douyinShimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.portfolio-thumb-douyin::before { content: "🎵" !important; font-size: 2.5rem !important; opacity: 0.5 !important; }
+.portfolio-cat-douyin { color: #ff2d55 !important; font-weight: 600; }
+.portfolio-play-douyin { background: linear-gradient(135deg, #ff0044, #ff2d55); }
+.portfolio-card-douyin:hover { border-color: #ff2d55 !important; box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 40px rgba(255,0,68,0.2) !important; }
+.portfolio-card-douyin:hover .portfolio-play-douyin { background: linear-gradient(135deg, #ff2d55, #ff5e7a); }
