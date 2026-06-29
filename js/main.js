@@ -125,14 +125,12 @@ function initVideoModal() {
       titleEl.textContent = title;
       if (url) {
         descEl.textContent = "";
-        videoEl.innerHTML = '';
+        if (!player.contains(videoEl)) player.appendChild(videoEl);
         videoEl.src = url;
         videoEl.load();
-        videoEl.play().catch(() => {});
-        player.style.display = 'block';
+        videoEl.play().catch(function() {});
       } else {
         descEl.textContent = "暂未上传视频";
-        player.innerHTML = '<div class="video-modal-placeholder"><p>暂未上传视频</p></div>';
       }
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
@@ -143,8 +141,6 @@ function initVideoModal() {
     document.body.style.overflow = "";
     videoEl.pause();
     videoEl.removeAttribute('src');
-    videoEl.innerHTML = '';
-    player.appendChild(videoEl);
   }
   closeBtn.addEventListener("click", closeModal);
   bg.addEventListener("click", closeModal);
