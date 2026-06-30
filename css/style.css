@@ -227,3 +227,43 @@ code { background: rgba(74, 144, 196, 0.15); padding: 2px 8px; border-radius: 4p
 .portfolio-play-douyin { background: linear-gradient(135deg, #ff0044, #ff2d55); }
 .portfolio-card-douyin:hover { border-color: #ff2d55 !important; box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 40px rgba(255,0,68,0.2) !important; }
 .portfolio-card-douyin:hover .portfolio-play-douyin { background: linear-gradient(135deg, #ff2d55, #ff5e7a); }
+
+/* ===== Login & Admin ===== */
+.nav-login-btn { background: none; border: 1px solid var(--border-medium); color: var(--text-secondary); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; transition: var(--transition-fast); margin-left: 16px; }
+.nav-login-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
+
+.login-modal, .edit-modal { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.login-modal.open, .edit-modal.open { opacity: 1; pointer-events: auto; }
+.login-modal-bg, .edit-modal-bg { position: absolute; inset: 0; background: rgba(7,12,23,0.92); backdrop-filter: blur(8px); }
+.login-modal-box, .edit-modal-box { position: relative; z-index: 2; background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 32px; min-width: 340px; max-width: 500px; width: 90%; backdrop-filter: blur(20px); }
+.login-modal-box h3, .edit-modal-box h3 { color: var(--accent-light); margin-bottom: 16px; font-family: var(--font-serif); }
+.login-modal-box input, .edit-input { width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); background: rgba(0,0,0,0.3); color: var(--text-primary); font-size: 0.95rem; font-family: var(--font-sans); margin-bottom: 12px; }
+.login-modal-box input:focus, .edit-input:focus { outline: none; border-color: var(--accent); }
+.login-submit { width: 100%; padding: 10px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: white; font-size: 0.95rem; cursor: pointer; font-family: var(--font-sans); transition: var(--transition-fast); }
+.login-submit:hover { background: var(--accent-light); }
+.login-error { color: #ff4455; font-size: 0.85rem; margin-top: 8px; }
+
+.admin-panel { margin-top: 40px; padding: 24px; background: var(--bg-card); border: 1px solid rgba(255,170,50,0.3); border-radius: var(--radius-md); }
+.admin-panel h4 { color: #ffaa32; margin-bottom: 12px; }
+.admin-section { margin-bottom: 16px; font-size: 0.88rem; color: var(--text-secondary); }
+.admin-section strong { color: var(--text-primary); display: block; margin-bottom: 6px; }
+.admin-cat-item { display: inline-block; padding: 3px 10px; margin: 3px; background: rgba(74,144,196,0.1); border-radius: 12px; font-size: 0.8rem; }
+.admin-del-sm { background: none; border: none; color: #ff4455; cursor: pointer; font-size: 14px; padding: 0 2px; }
+.edit-input-sm { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-medium); background: rgba(0,0,0,0.3); color: var(--text-primary); font-size: 0.82rem; width: 100px; margin: 3px; }
+.admin-btn-sm { padding: 6px 12px; border-radius: 6px; border: 1px solid var(--accent); background: none; color: var(--accent-light); cursor: pointer; font-size: 0.8rem; }
+
+.admin-actions { display: flex; gap: 4px; margin-top: 6px; }
+.admin-btn { background: none; border: 1px solid var(--border-medium); color: var(--text-secondary); width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: var(--transition-fast); }
+.admin-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+.admin-del { color: #ff4455; }
+.admin-del:hover { border-color: #ff4455; background: rgba(255,68,85,0.1); }
+.portfolio-card-add { display: flex; align-items: center; justify-content: center; min-height: 200px; border-style: dashed; border-color: var(--border-medium); }
+.portfolio-card-add:hover { border-color: var(--accent-light); }
+.portfolio-thumb-add { display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--border-medium); background: transparent !important; }
+.portfolio-item-add .portfolio-info { text-align: center; }
+.portfolio-item-add .portfolio-title { color: var(--text-tertiary); }
+
+.edit-btns { display: flex; gap: 8px; margin-top: 16px; }
+.edit-btns .login-submit { flex: 1; }
+.edit-btns .admin-btn { flex: 0; width: auto; padding: 0 16px; height: auto; }
+.edit-modal-box label { display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 4px; }
