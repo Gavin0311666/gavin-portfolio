@@ -346,15 +346,11 @@ function initLogin() {
   if (!btn) return;
   btn.addEventListener('click', function(e) {
     e.preventDefault();
-    if (isAuthor) { logout(); }
-    else { document.getElementById('loginModal').classList.add('open'); }
+    updateLoginModal();
+    var m = document.getElementById('loginModal');
+    if (m) m.classList.add('open');
   });
   btn.style.cursor = 'pointer';
-  // Enter key to submit login
-  document.getElementById('authPassword').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') doLogin();
-  });
-
 }
 
 function checkAuth() {
@@ -367,6 +363,7 @@ function checkAuth() {
       if (siteData) renderPortfolio();
     }
   } catch(e) {}
+  updateLoginModal();
 }
 
 function doLogin() {
@@ -387,9 +384,23 @@ function doLogin() {
   }
 }
 
+function updateLoginModal() {
+  var box = document.querySelector('.login-modal-box');
+  if (!box) return;
+  if (isAuthor) {
+    box.innerHTML = '<h3>已登录</h3><p style="color:var(--text-secondary);margin-bottom:16px">作者模式已激活</p><button onclick="logout();closeLogin()" class="login-submit">登出</button>';
+  } else {
+    box.innerHTML = '<h3>作者登录</h3><input type="password" id="authPassword" placeholder="请输入密码"><br><button onclick="doLogin()" class="login-submit">登录</button><p id="loginError" class="login-error"></p>';
+    // Re-bind Enter key
+    var pwEl = document.getElementById('authPassword');
+    if (pwEl) {
+      pwEl.addEventListener('keydown', function(e) { if (e.key === 'Enter') doLogin(); });
+    }
+  }
+}
+
 function closeLogin() {
   document.getElementById('loginModal').classList.remove('open');
-  document.getElementById('authPassword').value = '';
 }
 
 function logout() {
@@ -397,6 +408,7 @@ function logout() {
   try { localStorage.removeItem('gavin_auth'); } catch(e) {}
   var btn = document.getElementById('loginBtn');
   if (btn) btn.textContent = '🔒';
+  updateLoginModal();
   renderPortfolio();
 }
 
