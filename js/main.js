@@ -342,33 +342,48 @@ function closeVideo() {
 
 /* ===== Auth ===== */
 function initLogin() {
-  document.getElementById('loginBtn').addEventListener('click', function() {
+  var btn = document.getElementById('loginBtn');
+  if (!btn) return;
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
     if (isAuthor) { logout(); }
     else { document.getElementById('loginModal').classList.add('open'); }
   });
+  btn.style.cursor = 'pointer';
+  // Enter key to submit login
+  document.getElementById('authPassword').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doLogin();
+  });
+
 }
 
 function checkAuth() {
-  var token = localStorage.getItem('gavin_auth');
-  if (token === AUTHOR_PW) {
-    isAuthor = true;
-    document.getElementById('loginBtn').textContent = '🔓';
-    if (siteData) renderPortfolio();
-  }
+  try {
+    var token = localStorage.getItem('gavin_auth');
+    if (token === AUTHOR_PW) {
+      isAuthor = true;
+      var btn = document.getElementById('loginBtn');
+      if (btn) btn.textContent = '🔓';
+      if (siteData) renderPortfolio();
+    }
+  } catch(e) {}
 }
 
 function doLogin() {
-  var pw = document.getElementById('authPassword').value;
+  var pwEl = document.getElementById('authPassword');
+  var pw = pwEl ? pwEl.value : '';
   if (pw === AUTHOR_PW) {
     isAuthor = true;
-    localStorage.setItem('gavin_auth', pw);
+    try { localStorage.setItem('gavin_auth', pw); } catch(e) {}
     document.getElementById('loginModal').classList.remove('open');
     document.getElementById('loginBtn').textContent = '🔓';
-    document.getElementById('loginError').textContent = '';
-    document.getElementById('authPassword').value = '';
+    var errEl = document.getElementById('loginError');
+    if (errEl) errEl.textContent = '';
+    if (pwEl) pwEl.value = '';
     renderPortfolio();
   } else {
-    document.getElementById('loginError').textContent = '密码错误';
+    var errEl = document.getElementById('loginError');
+    if (errEl) errEl.textContent = '密码错误';
   }
 }
 
@@ -379,8 +394,9 @@ function closeLogin() {
 
 function logout() {
   isAuthor = false;
-  localStorage.removeItem('gavin_auth');
-  document.getElementById('loginBtn').textContent = '🔒';
+  try { localStorage.removeItem('gavin_auth'); } catch(e) {}
+  var btn = document.getElementById('loginBtn');
+  if (btn) btn.textContent = '🔒';
   renderPortfolio();
 }
 
