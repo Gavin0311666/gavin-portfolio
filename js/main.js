@@ -1,12 +1,196 @@
 /* ===== Gavin Portfolio CMS ===== */
-var DATA_URL = 'https://raw.githubusercontent.com/Gavin0311666/gavin-portfolio/main/data.json';
+var DATA_URL = 'data.json';
 var GH_API = 'https://api.github.com/repos/Gavin0311666/gavin-portfolio/contents/data.json';
 var DOUYIN = 'https://v.douyin.com/5Onmz-XZnVQ/';
 var AUTHOR_PW = '10030311';
 
 var siteData = null;
 var isAuthor = false;
-var fallbackData = null;
+var fallbackData = {
+  "categories": [
+    {
+      "key": "vlog",
+      "name": "Vlog"
+    },
+    {
+      "key": "documentary",
+      "name": "纪录片"
+    },
+    {
+      "key": "educational",
+      "name": "科普&教学"
+    },
+    {
+      "key": "talking",
+      "name": "口播"
+    },
+    {
+      "key": "montage",
+      "name": "影视混剪"
+    },
+    {
+      "key": "ae",
+      "name": "AE特效"
+    },
+    {
+      "key": "social",
+      "name": "我的自媒体"
+    }
+  ],
+  "videos": [
+    {
+      "category": "vlog",
+      "title": "猫头鹰之森",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E4%BA%AC%E9%83%BD%E5%AE%9D%E8%97%8F%E5%BA%97%E9%93%BA%E6%8E%A8%E8%8D%90%20%20%E7%8C%AB%E5%A4%B4%E9%B9%B0%E4%B9%8B%E6%A3%AE%EF%BF%BD..._top_0_2.mp4"
+    },
+    {
+      "category": "vlog",
+      "title": "大阪首日游",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E5%B0%8F%E9%BB%91%E7%8C%B4%E5%A4%A7%E9%98%AAvlog%E6%97%A5%E5%B8%B8%23vlog..._top_0_2.mp4"
+    },
+    {
+      "category": "vlog",
+      "title": "大阪次日游",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E5%B0%8F%E9%BB%91%E7%8C%B4%E5%A4%A7%E9%98%AA%E4%BA%8C%E6%97%A5vlog%F0%9F%90%92%23vl..._top_0_2.mp4"
+    },
+    {
+      "category": "vlog",
+      "title": "剪辑师的一天",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E5%89%AA%E8%BE%91%E5%B8%88vlog2.0.mp4"
+    },
+    {
+      "category": "vlog",
+      "title": "新疆",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E6%96%B0%E7%96%86.mp4"
+    },
+    {
+      "category": "vlog",
+      "title": "重庆个人游",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E9%87%8D%E5%BA%86.mp4"
+    },
+    {
+      "category": "documentary",
+      "title": "研究院纪录片",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E7%A0%94%E7%A9%B6%E9%99%A24.7.mp4"
+    },
+    {
+      "category": "documentary",
+      "title": "Time",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_Time%20%23%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%BE%AE%E8%A7%86%E9%A2%91%23%E5%A4%A7%E5%AD%A6%E7%94%9F..._top_0_2.mp4"
+    },
+    {
+      "category": "educational",
+      "title": "快闪教程",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E5%BF%AB%E9%97%AA%E6%95%99%E7%A8%8B.mp4"
+    },
+    {
+      "category": "educational",
+      "title": "老干妈",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E8%80%81%E5%B9%B2%E5%A6%88.mp4"
+    },
+    {
+      "category": "educational",
+      "title": "角色墙纸",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E5%A2%93%E7%A2%9F%E5%A2%99%E7%BA%B8%E6%95%99%E5%AD%A6.mp4"
+    },
+    {
+      "category": "educational",
+      "title": "炸鸡科普",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E7%82%B8%E9%B8%A1.mp4"
+    },
+    {
+      "category": "talking",
+      "title": "Ai选股",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/ai%E9%80%89%E8%82%A1.mp4"
+    },
+    {
+      "category": "talking",
+      "title": "修眉",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E4%BF%AE%E7%9C%89%E6%98%AF%E5%B0%8F%E4%BA%8B%EF%BC%9F%E6%8B%A5%E6%9C%89%E4%B8%80%E5%AF%B9%E8%87%AA%E7%84%B6%E7%94%9F%E6%B4%BB%E6%AC%BE%E7%9A%84..._top_0_2.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "spider",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/spider.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "怪奇物语",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/strangerthings.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "Timeless&spiderman",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_Timeless%E5%92%8C%E8%9C%98%E8%9B%9B%E4%BE%A0%E5%A4%AA%E7%BB%9D%E9%85%8D%E4%BA%86..._top_0_1.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "超凡蜘蛛侠",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E8%B6%85%E5%B8%85%E8%9C%98%E8%9B%9B%E4%BE%A0%EF%BC%81%EF%BC%81%23%E8%9C%98%E8%9B%9B%E4%BE%A0%20%23%E8%B6%85%E5%87%A1%E8%9C%98..._top_0_1.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "永劫无间",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E6%88%91%E8%BA%AB%E6%97%A0%E6%8B%98%EF%BC%8C%E5%90%BE%E9%81%93%E6%97%A0%E7%A9%B7_1080p_top_0_2.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "蜘蛛侠是…",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E8%9C%98%E8%9B%9B%E4%BE%A0%E6%98%AF.......%20%23%E8%9C%98%E8%9B%9B%E4%BE%A0..._top_0_1.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "黑神话悟空",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E7%8C%B4%E5%AD%90.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "牧师",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E7%89%A7%E5%B8%88222.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "前田夫人",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E5%89%8D%E7%94%B0%E5%A4%AB%E4%BA%BA.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "天命人",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E5%A4%A9%E5%91%BD%E4%BA%BA.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "永劫逆战",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E6%B0%B8%E5%8A%AB%E9%80%86%E6%88%98.mp4"
+    },
+    {
+      "category": "montage",
+      "title": "战斗天使",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/%E6%88%98%E6%96%97%E5%A4%A9%E4%BD%BF.mp4"
+    },
+    {
+      "category": "ae",
+      "title": "耳机特效",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%23%20%23ae%E7%89%B9%E6%95%88%20%20%23AE%20%23th..._top_0_2.mp4"
+    },
+    {
+      "category": "ae",
+      "title": "宇宙粒子",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_Don%27t%20call%20me%20no..._top_0_2.mp4"
+    },
+    {
+      "category": "ae",
+      "title": "猩红湖面",
+      "url": "https://gavin-videos.oss-cn-shenzhen.aliyuncs.com/video_%E6%96%B0%E9%A3%8E%E6%A0%BC%20%23ae%20%23%E7%83%AD%E6%AD%8C%E5%88%86%E4%BA%AB%20%23a..._top_0_2.mp4"
+    },
+    {
+      "category": "social",
+      "title": "抖音主页",
+      "url": "https://v.douyin.com/5Onmz-XZnVQ/"
+    }
+  ],
+  "schemaVersion": 1
+};
 
 /* ===== Init ===== */
 document.addEventListener("DOMContentLoaded", function() {
