@@ -232,8 +232,8 @@ code { background: rgba(74, 144, 196, 0.15); padding: 2px 8px; border-radius: 4p
 .nav-login-btn { background: none; border: 1px solid var(--border-medium); color: var(--text-secondary); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; transition: var(--transition-fast); margin-left: 16px; }
 .nav-login-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
 
-.login-modal, .edit-modal { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-.login-modal.open, .edit-modal.open { opacity: 1; pointer-events: auto; }
+.login-modal, .edit-modal { position: fixed; inset: 0; z-index: 9995; display: none; align-items: center; justify-content: center; }
+.login-modal.open, .edit-modal.open { display: flex; }
 .login-modal-bg, .edit-modal-bg { position: absolute; inset: 0; background: rgba(7,12,23,0.92); backdrop-filter: blur(8px); }
 .login-modal-box, .edit-modal-box { position: relative; z-index: 2; background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 32px; min-width: 340px; max-width: 500px; width: 90%; backdrop-filter: blur(20px); }
 .login-modal-box h3, .edit-modal-box h3 { color: var(--accent-light); margin-bottom: 16px; font-family: var(--font-serif); }
