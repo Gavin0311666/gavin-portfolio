@@ -224,9 +224,9 @@ function renderPortfolio() {
   // Render filters
   var filtersDiv = document.getElementById('portfolioFilters');
   var cats = siteData.categories || [];
-  var h = '<button class="filter-btn active" data-filter="all" onclick="filterPortfolio('all',this)">全部</button>';
+  var h = '<button class="filter-btn active" data-filter="all" onclick="filterPortfolio(\x27all\x27,this)">全部</button>';
   for (var i = 0; i < cats.length; i++) {
-    h += '<button class="filter-btn" data-filter="' + cats[i].key + '" onclick="filterPortfolio('' + cats[i].key + '',this)">' + cats[i].name + '</button>';
+    h += '<button class="filter-btn" data-filter="' + cats[i].key + '" onclick="filterPortfolio(\x27' + cats[i].key + '\x27,this)">' + cats[i].name + '</button>';
   }
   filtersDiv.innerHTML = h;
 
@@ -237,7 +237,7 @@ function renderPortfolio() {
   for (var i = 0; i < videos.length; i++) {
     var v = videos[i];
     var isSocial = v.category === 'social';
-    var onclick = isSocial ? 'window.open('' + (v.url || DOUYIN) + '','_blank')' : 'openVideo(this)';
+    var onclick = isSocial ? 'window.open(\x27' + (v.url || DOUYIN) + '\x27,\x27_blank\x27)' : 'openVideo(this)';
     var catName = '';
     for (var j = 0; j < cats.length; j++) { if (cats[j].key === v.category) { catName = cats[j].name; break; } }
     var thumbHtml = isSocial 
@@ -440,7 +440,7 @@ function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 /* ===== Admin Panel ===== */
 function renderAdminPanel() {
   var panel = document.getElementById('adminPanel');
-  var catNames = (siteData.categories || []).map(function(c) { return '<span class="admin-cat-item">' + c.name + ' <button onclick="deleteCategory('' + c.key + '')" class="admin-del-sm">×</button></span>'; }).join(' ');
+  var catNames = (siteData.categories || []).map(function(c) { return '<span class="admin-cat-item">' + c.name + ' <button onclick="deleteCategory(\x27' + c.key + '\x27)" class="admin-del-sm">×</button></span>'; }).join(' ');
   var h = '<h4>⚙️ 管理面板</h4><div class="admin-section"><strong>分类管理</strong><br>' + catNames + '<br><input id="newCatKey" placeholder="标识(英文)" class="edit-input-sm"><input id="newCatName" placeholder="名称" class="edit-input-sm"><button onclick="addCategory()" class="admin-btn-sm">+ 添加分类</button></div>';
   h += '<button onclick="publishData()" class="login-submit" style="margin-top:12px">📤 发布到网站</button>';
   panel.innerHTML = h;
